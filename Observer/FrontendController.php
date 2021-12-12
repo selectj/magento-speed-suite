@@ -2,6 +2,7 @@
 
 namespace Selectj\SpeedSuite\Observer;
 
+use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Selectj\SpeedSuite\Helper\Data;
 
@@ -17,7 +18,7 @@ class FrontendController implements ObserverInterface
         $this->helper = $helper;
     }
 
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    public function execute(Observer $observer)
     {
         if (!$this->helper->isDeferJsEnabled())
             return;
