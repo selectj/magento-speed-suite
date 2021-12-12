@@ -6,20 +6,20 @@ use Magento\Framework\Event\ObserverInterface;
 use Selectj\SpeedSuite\Helper\Data;
 
 
-class Observer implements ObserverInterface
+class FrontendController implements ObserverInterface
 {
-    protected $_helper;
+    private Data $helper;
 
     public function __construct(
         Data $helper
     )
     {
-        $this->_helper = $helper;
+        $this->helper = $helper;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        if (!$this->_helper->isDeferJsEnabled())
+        if (!$this->helper->isDeferJsEnabled())
             return;
 
         $response = $observer->getEvent()->getData('response');
