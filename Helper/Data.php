@@ -10,6 +10,8 @@ class Data extends AbstractHelper
 {
 
     const DEFER_JS_ENABLE = 'speedsuite/defer_js_load/general/enabled';
+
+
     /**
      * @param Context $context
      */
@@ -18,6 +20,10 @@ class Data extends AbstractHelper
         parent::__construct($context);
     }
 
+    /**
+     * @param $configPath
+     * @return bool
+     */
     public function getStoreConfig($configPath): bool
     {
         return $this->scopeConfig->getValue(
@@ -26,6 +32,9 @@ class Data extends AbstractHelper
         );
     }
 
+    /**
+     * @return bool
+     */
     public function isDeferJsEnabled() : bool
     {
         return $this->getStoreConfig(self::DEFER_JS_ENABLE);

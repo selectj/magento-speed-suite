@@ -9,15 +9,24 @@ use Selectj\SpeedSuite\Helper\Data;
 
 class FrontendController implements ObserverInterface
 {
+
+    /**
+     * @var Data
+     */
     private Data $helper;
 
+    /**
+     * @param Data $helper
+     */
     public function __construct(
         Data $helper
-    )
-    {
+    ){
         $this->helper = $helper;
     }
 
+    /**
+     * @param Observer $observer
+     */
     public function execute(Observer $observer)
     {
         if (!$this->helper->isDeferJsEnabled())
